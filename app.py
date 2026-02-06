@@ -1,3 +1,45 @@
+#    ______  _            _______          _
+#   |  ____|| |          |__   __|        (_)
+#   | |__   | | __ ___  __  | | __      __ _ _ __
+#   |  __|  | |/ _` \ \/ /  | | \ \ /\ / /| | '_ \
+#   | |     | | (_| |>  <   | |  \ V  V / | | | | |
+#   |_|     |_|\__,_/_/\_\  |_|   \_/\_/  |_|_| |_|
+#
+# ================================================================
+# 📄 File Name     : app.py
+# 🧩 Component     : FluxTwin Core – Streamlit Orchestrator
+# 🌍 Platform      : FluxTwin – CFD-Based Digital Twin Framework
+# 🌐 Deployment    : https://fluxtwin-core.dstechs.net/
+# ⚖️ License       : AGPLv3 (Open Source)
+# 👨‍💻 Developed By : D&S Tech
+# 📅 Date Created  : 06.02.2026
+# 🔄 Last Update   : 06.02.2026
+#
+# 📌 Overview:
+#   This script is the main entry point of the FluxTwin web platform.
+#   It acts as a lightweight orchestration layer that connects multiple
+#   pilot data centres to a unified CFD visualization interface.
+#
+#   Responsibilities:
+#     • Initialize the Streamlit application (layout, branding, UX flow)
+#     • Provide a landing interface for pilot data centre selection
+#     • Route user interaction to site-specific CFD viewers
+#     • Enable scalable integration of new digital-twin deployments
+#
+#   FluxTwin demonstrates how high-fidelity CFD simulations can be
+#   transformed into an interactive, browser-based decision-support
+#   environment for data centre thermal and airflow analysis.
+#
+# 🎯 Target Audience:
+#   • Data centre operators and facility managers
+#   • Thermal / CFD engineers
+#   • Digital twin and energy optimization stakeholders
+#
+# ✉️ Contact:
+#   Data Centre Digital Twin Solutions
+#   D&S Tech — datacenter@dstechs.net
+# ================================================================
+
 import streamlit as st
 import runpy
 from pathlib import Path
