@@ -11,7 +11,7 @@
 # 🌍 Platform      : FluxTwin – CFD-Based Digital Twin Framework
 # 🌐 Deployment    : https://fluxtwin-core.dstechs.net/
 # ⚖️ License       : AGPLv3 (Open Source)
-# 👨‍💻 Developed By : D&S Tech
+# 👨‍💻 Developed By  : D&S Tech
 # 📅 Date Created  : 06.02.2026
 # 🔄 Last Update   : 06.02.2026
 #
