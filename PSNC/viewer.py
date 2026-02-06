@@ -452,7 +452,6 @@ if view_tab == "Digital Twin":
         )
 
 # Logo section at the bottom of sidebar
-st.sidebar.markdown("---")
 
 st.sidebar.markdown(
     """
