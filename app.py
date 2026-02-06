@@ -54,9 +54,10 @@ def file_to_data_uri(filepath, mime_type):
         data = base64.b64encode(f.read()).decode()
     return f"data:{mime_type};base64,{data}"
 
-# ---------- Page config (ONLY ONCE) ----------
+# ---------- Page config ----------
 st.set_page_config(
     page_title="FluxTwin",
+    page_icon="images/FluxTwin_icon.png",
     layout="wide"
 )
 
@@ -81,6 +82,7 @@ st.markdown(
       }
       .spacer-sm { height: 10px; }
       .spacer-md { height: 20px; }
+      .spacer-lg { height: 80px; }
       
       /* Alert spacing */
       [data-testid="stSidebar"] [data-testid="stAlert"] {
@@ -109,8 +111,8 @@ st.markdown(
       /* Feature image container - ONLY large for 2d_slice_x_axis and KPI_table */
       .feature-img-container-large {
         text-align: center;
-        padding: 15px;
-        margin-top: 15px;
+        padding: 10px;
+        margin-top: 10px;
       }
       .feature-img-container-large img {
         width: 100%;
@@ -122,8 +124,8 @@ st.markdown(
       /* Keep TwinFlux_Code small */
       .feature-img-container-small {
         text-align: center;
-        padding: 15px;
-        margin-top: 15px;
+        padding: 10px;
+        margin-top: 10px;
       }
       .feature-img-container-small img {
         width: 100%;
@@ -146,6 +148,17 @@ st.markdown(
         color: #999;
         font-size: 14px;
       }
+      
+      /* HEATWISE link styling */
+      .heatwise-link {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 2px solid currentColor;
+        transition: opacity 0.2s;
+      }
+      .heatwise-link:hover {
+        opacity: 0.7;
+      }
     </style>
     """,
     unsafe_allow_html=True
@@ -161,7 +174,7 @@ DC_LIST = {
     "AAU": "🇩🇰 AAU (Aalborg Univ. - Denmark)",
     "EMPA": "🇨🇭 EMPA (Material Science Lab - Switzerland)",
     "PSNC": "🇵🇱 PSNC (Supercomputing Center - Poland)",
-    "TOFAS": "🇹🇷 TOFAS (Automotive Factory - Turkey)"
+    "TOFAS": "🇹🇷 TOFAS (Automotive Factory - Turkiye)"
 }
 
 BASE_DIR = Path(__file__).parent
@@ -203,14 +216,12 @@ with st.sidebar:
             st.session_state.selected_dc = selected_key
             st.session_state.dc_locked = True
             st.rerun()
+        
+        # Spacer between button and footer
+        st.markdown('<div class="spacer-lg"></div>', unsafe_allow_html=True)
     
     # Footer section
     if not st.session_state.dc_locked:
-        # Flexible spacer
-        st.markdown("""
-            <div style="flex-grow: 1; min-height: 210px;"></div>
-        """, unsafe_allow_html=True)
-        
         st.sidebar.markdown(
             """
             <p style='font-size: 13px; color:#6b7280; font-weight:600; margin-bottom:6px;'>
@@ -266,23 +277,15 @@ if not st.session_state.dc_locked:
     # Main landing page
     st.markdown(
         """
-        <div style="text-align:center; padding-top: 60px;">
-          <h1 style="font-size: 48px; font-weight: 800; line-height: 1.2; margin-bottom: 10px;">
+        <div style="text-align:center; padding-top: 20px;">
+          <h1 style="font-size: 48px; font-weight: 800; line-height: 1.2; margin-bottom: 20px;">
             FluxTwin Core: Open-Source Thermal Intelligence
           </h1>
-          <p style="font-size: 18px; opacity: 0.7; margin-bottom: 40px;">
-            Validated CFD technology born from the EU-funded HEATWISE project.
-          </p>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-    
-    st.markdown(
-        """
-        <div style="text-align:center; margin-bottom: 40px;">
-          <h2 style="font-size: 32px; font-weight: 700;">
+          <p style="font-size: 32px; font-weight: 700; margin-bottom: 20px;">
             ⚡ Zero Installation, Instant Insight.
+          </p>
+          <h2 style="font-size: 18px; opacity: 0.7; margin-bottom: 30px;">
+            Validated CFD technology born from the EU-funded <a href="https://heatwise.eu/" target="_blank" class="heatwise-link">HEATWISE</a> project.
           </h2>
         </div>
         """,
@@ -301,9 +304,9 @@ if not st.session_state.dc_locked:
         img_html = f'<img src="{slice_x_src}" alt="Airflow Visualization">' if slice_x_src else '<div class="feature-img-placeholder">Image placeholder</div>'
         st.markdown(
             f"""
-            <div style="text-align:center; padding: 20px;">
-              <div style="font-size: 40px; margin-bottom: 10px;">👁️</div>
-              <p style="font-size: 16px; font-weight: 600; margin-bottom: 5px;">Visualize invisible airflow patterns.</p>
+            <div style="text-align:center; padding: 10px;">
+              <div style="font-size: 28px; margin-bottom: 8px;">👁️</div>
+              <p style="font-size: 16px; font-weight: 600; margin-bottom: 5px;">Visualize invisible airflow and thermal patterns.</p>
               <div class="feature-img-container-large">
                 {img_html}
               </div>
@@ -317,8 +320,8 @@ if not st.session_state.dc_locked:
         img_html = f'<img src="{kpi_src}" alt="KPI Table">' if kpi_src else '<div class="feature-img-placeholder">Image placeholder</div>'
         st.markdown(
             f"""
-            <div style="text-align:center; padding: 20px;">
-              <div style="font-size: 40px; margin-bottom: 10px;">📊</div>
+            <div style="text-align:center; padding: 10px;">
+              <div style="font-size: 28px; margin-bottom: 8px;">📊</div>
               <p style="font-size: 16px; font-weight: 600; margin-bottom: 5px;">Calculate cooling KPIs instantly.</p>
               <div class="feature-img-container-large">
                 {img_html}
@@ -333,8 +336,8 @@ if not st.session_state.dc_locked:
         img_html = f'<img src="{code_src}" alt="Open Source Code">' if code_src else '<div class="feature-img-placeholder">Image placeholder</div>'
         st.markdown(
             f"""
-            <div style="text-align:center; padding: 20px;">
-              <div style="font-size: 40px; margin-bottom: 10px;">🔓</div>
+            <div style="text-align:center; padding: 10px;">
+              <div style="font-size: 28px; margin-bottom: 8px;">🔓</div>
               <p style="font-size: 16px; font-weight: 600; margin-bottom: 5px;">Powered by Open Source (AGPLv3).</p>
               <div class="feature-img-container-small">
                 {img_html}
@@ -343,6 +346,16 @@ if not st.session_state.dc_locked:
             """,
             unsafe_allow_html=True
         )
+    
+    # Footer below images - left aligned
+    st.markdown(
+        """
+        <div style="text-align:left; padding: 60px 20px 20px 20px;">
+          <p style="font-size: 16px; font-weight: 600;">Developed by D&S Tech © 2026</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
     
     st.stop()
 
