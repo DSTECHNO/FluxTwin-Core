@@ -431,8 +431,6 @@ if view_tab == "Digital Twin":
             unsafe_allow_html=True
         )
 
-st.sidebar.markdown("---")
-
 st.sidebar.markdown(
     """
     <p style='font-size: 12px; color:#6b7280; font-weight:600; margin-bottom:4px;'>
