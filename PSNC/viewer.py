@@ -1,3 +1,49 @@
+#    ______  _            _______          _
+#   |  ____|| |          |__   __|        (_)
+#   | |__   | | __ ___  __  | | __      __ _ _ __
+#   |  __|  | |/ _` \ \/ /  | | \ \ /\ / /| | '_ \
+#   | |     | | (_| |>  <   | |  \ V  V / | | | | |
+#   |_|     |_|\__,_/_/\_\  |_|   \_/\_/  |_|_| |_|
+#
+# =================================================================
+# 📄 File Name     : viewer.py
+# 🧩 Component     : FluxTwin Site Viewer – CFD Post-Processing UI
+# 🌍 Platform      : FluxTwin – CFD-Based Digital Twin Framework
+# 🌐 Deployment    : https://fluxtwin-core.dstechs.net/
+# ⚖️ License       : AGPLv3 (Open Source)
+# 👨‍💻 Developed By  : D&S Tech
+# 📅 Date Created  : 06.02.2026
+# 🔄 Last Update   : 06.02.2026
+#
+# 🏷️ Pilot Site:
+#   AAU / EMPA / PSNC / TOFAS
+#
+# 📌 Overview:
+#   This module provides an interactive post-processing and visualization
+#   interface for CFD simulations of data centre environments.
+#
+#   It bridges raw CFD output and engineering insight by enabling
+#   intuitive exploration of three-dimensional thermal and airflow
+#   fields directly in a web-based environment.
+#
+# 🔬 Technical Capabilities:
+#   • Secure access via Streamlit secrets (authentication layer)
+#   • Efficient handling of large CFD datasets stored in NPZ format
+#   • Support for volumetric scalar and vector fields
+#   • Optional geometric context via VTK-based surface visualization
+#   • Interactive 3D scatter plots with adaptive downsampling
+#   • Planar slicing with thickness control and cached interpolation
+#   • On-the-fly statistical evaluation of CFD fields
+#
+# 📊 Engineering Use Case:
+#   Enables hotspot detection, airflow quality assessment,
+#   thermal compliance checks and scenario-based comparison
+#   within a CFD-driven digital twin workflow.
+#
+# ✉️ Contact:
+#   Data Centre Digital Twin Solutions
+#   D&S Tech — datacenter@dstechs.net
+# =================================================================
 import streamlit as st
 import numpy as np
 import plotly.graph_objects as go
