@@ -225,7 +225,7 @@ with st.sidebar:
         st.sidebar.markdown(
             """
             <p style='font-size: 13px; color:#6b7280; font-weight:600; margin-bottom:6px;'>
-                Developed by D&STECH © 2026
+                Developed by D&S Tech © 2026
             </p>
             <p style='font-size: 12px; color:#6b7280; line-height:1.5; margin-bottom: 15px;'>
                 FluxTwin(c) has been developed as part of EU-funded HEATWISE Project. The Heatwise Project has received funding from the European Union's Horizon Europe research and innovation programme under Grant Agreement No 101138491 and the Swiss Secretariat for Education, Research, and Innovation (SERI) under contract No 23.00606.
@@ -347,10 +347,16 @@ if not st.session_state.dc_locked:
             unsafe_allow_html=True
         )
     
+		# Footer below images - left aligned
     # Footer below images - left aligned
     st.markdown(
         """
         <div style="text-align:left; padding: 60px 20px 20px 20px;">
+          <p style="font-size: 14px; color:#6b7280; line-height:1.6; margin-bottom: 15px;">
+            FluxTwin Core is open-source software licensed under the AGPLv3. 
+            For commercial use, proprietary licensing and Enterprise edition, please contact: 
+            <a href="mailto:datacenter@dstechs.net" style="color: inherit; font-weight: 600; text-decoration: none; border-bottom: 2px solid currentColor;">datacenter@dstechs.net</a>
+          </p>
           <p style="font-size: 16px; font-weight: 600;">Developed by D&S Tech © 2026</p>
         </div>
         """,
