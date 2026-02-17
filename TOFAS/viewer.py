@@ -61,39 +61,6 @@ def file_to_data_uri(path: Path, mime: str) -> str:
     return f"data:{mime};base64,{b64}"
 
 # -------------------------------------------------
-# 1. PASSWORD AUTHENTICATION
-# -------------------------------------------------
-def check_password():
-    """Returns `True` if the user had the correct password."""
-
-    def password_entered():
-        if st.session_state["password"] == st.secrets["password"]:
-            st.session_state["password_correct"] = True
-            del st.session_state["password"]
-        else:
-            st.session_state["password_correct"] = False
-
-    if st.session_state.get("password_correct", False):
-        return True
-
-    st.text_input(
-        "Please enter the password:",
-        type="password",
-        on_change=password_entered,
-        key="password"
-    )
-
-    if "password_correct" in st.session_state and not st.session_state["password_correct"]:
-        st.error("😕 Password incorrect. Please try again.")
-
-    return False
-
-
-if not check_password():
-    st.stop()
-
-
-# -------------------------------------------------
 # FILE DOWNLOAD (CACHE)
 # -------------------------------------------------
 @st.cache_data(show_spinner=False)
