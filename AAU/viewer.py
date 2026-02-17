@@ -60,42 +60,6 @@ BASE_DIR = Path(__file__).resolve().parent
 def file_to_data_uri(path: Path, mime: str) -> str:
     b64 = base64.b64encode(path.read_bytes()).decode("utf-8")
     return f"data:{mime};base64,{b64}"
-
-# -------------------------------------------------
-# 1. PASSWORD AUTHENTICATION
-# -------------------------------------------------
-def check_password():
-    """Returns `True` if the user had the correct password."""
-
-    def password_entered():
-        # Checks whether a password entered by the user is correct.
-        if st.session_state["password"] == st.secrets["password"]:
-            st.session_state["password_correct"] = True
-            del st.session_state["password"]  # Don't store the password in the session state for security
-        else:
-            st.session_state["password_correct"] = False
-
-    # Return True if the password is validated.
-    if st.session_state.get("password_correct", False):
-        return True
-
-    # Show input for password.
-    st.text_input(
-        "Please enter the password:", 
-        type="password", 
-        on_change=password_entered, 
-        key="password"
-    )
-    
-    if "password_correct" in st.session_state and not st.session_state["password_correct"]:
-        st.error("😕 Password incorrect. Please try again.")
-
-    return False
-
-if not check_password():
-    st.stop()  # Do not continue if check_password is not True.
-
-
 # -------------------------------------------------
 # NPZ LOAD
 # -------------------------------------------------
